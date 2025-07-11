@@ -1,0 +1,127 @@
+/* === FOOTER === */
+.footer {
+  background: linear-gradient(to bottom, #111 0%, #000 100%);
+  color: #fff;
+  padding: 60px 20px 20px;
+}
+
+.footer-container {
+  max-width: 1060px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer-col {
+  flex: 1 1 280px;
+}
+
+/* LOGO TRONG FOOTER */
+.footer-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.footer-logo span {
+  color: #ff5722;
+}
+
+/* TIÊU ĐỀ CỘT */
+.footer-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #ff5722; /* cam nổi bật */
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffab40;
+}
+
+/* Thông tin liên hệ */
+.footer-col p {
+  font-size: 0.95rem;
+  margin: 8px 0;
+}
+
+.footer-col i {
+  margin-right: 8px;
+  color: #fff;
+}
+
+/* Mạng xã hội */
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+  color: #ffeb3b;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 20px;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.footer-bottom strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer-bottom strong span {
+  color: #ff5722; /* ShoeStyle nổi bật */
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 32px;
+    text-align: center;
+  }
+
+  .footer-col {
+    flex: 1 1 100%;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
+  }
+}

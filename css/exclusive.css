@@ -1,0 +1,386 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+
+
+.exclusive-product-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 40px;
+  justify-content: center;
+  max-width: 1300px;
+  margin: 60px auto;
+  background: #111;
+}
+
+.exclusive-title {
+  width: 100%;
+  text-align: center;
+  font-size: 36px;
+  color: #fff;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  animation: pulse 2s infinite;
+}
+
+/* Common Product Card */
+.product-card {
+  font-family: 'Bebas Neue', sans-serif;
+  position: relative;
+  overflow: hidden;
+  width: 360px;
+  height: 560px;
+}
+
+/* NIKE */
+.nike {
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+.nike .card-header {
+  color: yellow;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+.nike .card-subtitle {
+  color: #ff3c3c;
+  font-size: 14px;
+  margin-top: 4px;
+}
+.nike .card-subtitle span {
+  color: #fff;
+  font-size: 12px;
+}
+.nike .product-image {
+  width: 100%;
+  max-width: 285px;
+  margin: 12px auto;
+  transform: rotate(-30deg);
+  filter: drop-shadow(0 0 2px red) drop-shadow(0 0 3px violet)
+    drop-shadow(0 0 4px yellow) drop-shadow(0 0 5px green)
+    drop-shadow(0 0 6px blue) drop-shadow(0 0 7px indigo)
+    drop-shadow(0 0 8px orange);
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+.nike .card-details {
+  position: absolute;
+  bottom: 35px;
+  left: 30px;
+  font-size: 14px;
+  text-align: left;
+  margin-top: 12px;
+  line-height: 1.6;
+  font-family: 'Bebas Neue', sans-serif;
+}
+.event-date span {
+  font-size: 16px;
+}
+.event-date strong {
+  display: block;
+  font-size: 26px;
+  margin-top: 2px;
+}
+.event-info .line-1 {
+  font-size: 16px;
+  color: #00ccff;
+  font-weight: 600;
+}
+.event-info .line-2 {
+  font-size: 14px;
+  color: #0099dd;
+}
+.event-info .line-3 {
+  font-size: 12px;
+  color: #0066aa;
+}
+.hashtag {
+  margin-top: 8px;
+  color: #0099ff;
+}
+.nike .card-footer {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.nike .card-footer span {
+  font-style: italic;
+  font-size: 14px;
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nike .card-footer img {
+  width: 60px;
+  margin-right: 20px;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+}
+
+/* REEBOK */
+.reebok {
+  background: #fff;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 360px;
+  height: 560px;
+}
+.reebok .bg-pattern {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.reebok .brand-logo {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 60px;
+  z-index: 2;
+}
+.text-top {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+}
+.text-top .strong {
+  font-size: 14px;
+  letter-spacing: 6px;
+  color: #333;
+}
+.text-top .ride {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 10px;
+  color: #e6846b;
+}
+.diamond-pattern {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  width: 180px;
+  height: 180px;
+  transform: translateX(-50%) rotate(45deg);
+  border: 4px solid #f18f70;
+  z-index: 1;
+}
+.diamond-pattern::before,
+.diamond-pattern::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid #f18f70;
+}
+.diamond-pattern::before {
+  top: -20px;
+  left: -20px;
+}
+.diamond-pattern::after {
+  top: 20px;
+  left: 20px;
+}
+.reebok .product-image {
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) rotate(20deg);
+  z-index: 2;
+  filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.3));
+  object-fit: contain;
+  object-position: center;
+}
+.text-bottom {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #333;
+  z-index: 3;
+}
+.text-bottom .floatride {
+  font-size: 16px;
+  font-weight: bold;
+}
+.text-bottom .arrow {
+  color: #000;
+  margin-left: 4px;
+}
+.text-bottom .subtext {
+  margin-top: 4px;
+  letter-spacing: 2px;
+}
+.text-bottom .flex {
+  font-weight: bold;
+}
+.footer-links {
+  margin-top: 8px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* PUMA */
+.puma {
+  background: #fa4c4d;
+  color: white;
+  font-family: "Anton", sans-serif;
+  width: 360px;
+  height: 560px;
+}
+.puma .puma-bg-text {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  padding: 40px 20px 0;
+  font-size: 130px;
+  line-height: 100px;
+  font-weight: 900;
+  z-index: 0;
+  opacity: 1;
+  word-break: break-word;
+}
+.puma .product-image {
+  position: absolute;
+  top: 48%;
+  left: 40%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  width: 430px;
+  z-index: 2;
+}
+.puma-left-info {
+  position: absolute;
+  bottom: 30px;
+  left: 20px;
+  z-index: 3;
+  color: #111;
+}
+.puma-future {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+.puma-pack {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.puma-brand {
+  position: absolute;
+  bottom: -28px;
+  right: -45px;
+  z-index: 3;
+}
+.puma-brand img {
+  width: 200px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* ANIMATION TITLE */
+@keyframes pulse {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #f00, 0 0 10px #ff0;
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+    transform: scale(1.05);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .exclusive-product-section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .product-card {
+    width: 90%;
+    min-height: 560px;
+  }
+
+  .nike .card-details {
+    position: absolute;
+    bottom: 35px;
+    left: 30px;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 12px;
+    line-height: 1.6;
+  }
+
+  .puma .product-image {
+    width: 100%;
+    max-width: 485px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+  }
+
+  .reebok .product-image {
+    width: 100%;
+    max-width: 485px;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%) rotate(20deg);
+  }
+
+  .reebok .diamond-pattern {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .exclusive-product-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 60px;
+  }
+
+  .exclusive-title {
+    font-size: 28px;
+  }
+
+  .nike .product-image {
+    max-width: 90%;
+    transform: rotate(-20deg);
+  }
+
+  .puma .puma-bg-text {
+    font-size: 70px;
+    line-height: 60px;
+    padding: 20px;
+  }
+
+  .puma-left-info {
+    bottom: 20px;
+    left: 10px;
+  }
+
+  .reebok .text-top .ride {
+    font-size: 32px;
+  }
+}

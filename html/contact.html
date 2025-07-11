@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liên hệ</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/card.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/checkout.css" />
+    <link rel="stylesheet" href="/css/auth.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      .contact-section__map iframe {
+        width: 100%;
+        height: 640px;
+        border: none;
+      }
+
+      .contact-section__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+        justify-content: space-between;
+      }
+
+      .contact-info__block {
+        flex: 1 1 30%;
+      }
+
+      .contact-info__title {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 25px;
+      }
+
+      .contact-info__text {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .contact-info__text--bold {
+        font-weight: 700;
+        color: #000;
+      }
+
+      .contact-info__socials {
+        display: flex;
+        gap: 15px;
+        margin-top: 25px;
+      }
+
+      .contact-info__icon {
+        font-size: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        transition: 0.3s;
+      }
+
+      .contact-info__icon:hover {
+        background-color: #ff4500;
+        color: #fff;
+        border-color: #ff4500;
+      }
+
+      .contact-form__container {
+        flex: 1 1 65%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .contact-form__group {
+        position: relative;
+        flex: 1 1 48%;
+      }
+
+      .contact-form__group--full {
+        flex: 1 1 100%;
+      }
+
+      .contact-form__input,
+      .contact-form__textarea {
+        width: 100%;
+        padding: 13px 0px 13px 36px;
+        font-size: 16px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        outline: none;
+        background: transparent;
+      }
+
+      .contact-form__icon {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        font-size: 18px;
+        padding-left: 10px;
+        color: #000;
+      }
+
+      .contact-form__textarea {
+        resize: none;
+      }
+
+      .contact-form__checkbox {
+        flex: 1 1 100%;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        color: #555;
+      }
+
+      .contact-form__checkbox input {
+        margin-right: 8px;
+      }
+
+      .contact-form__submit {
+        display: inline-flex;
+        align-items: center;
+        background-color: #ff5a00;
+        color: #fff;
+        border: none;
+        padding: 15px 30px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        gap: 10px;
+      }
+
+      .contact-form__submit:hover {
+        background-color: #e34900;
+      }
+
+      .contact-form__message {
+        display: none;
+        color: green;
+        font-weight: 500;
+        margin-top: 10px;
+        animation: fadeIn 0.6s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-section__wrapper {
+          flex-direction: column;
+        }
+        .contact-form__container {
+          flex-direction: column;
+        }
+        .contact-form__group {
+          flex: 1 1 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__logo">Shoe<span>Style</span></div>
+
+        <nav class="header__nav" id="nav-menu">
+          <a href="/index.html" class="nav__link">Trang chủ</a>
+          <a href="/html/product.html" class="nav__link">Sản phẩm</a>
+          <a href="/html/about.html" class="nav__link">Giới thiệu</a>
+          <a href="/html/bloglist.html" class="nav__link">Tin tức</a>
+          <a href="/html/contact.html" class="nav__link">Liên hệ</a>
+        </nav>
+
+        <div class="header__icons">
+          <i class="bx bx-search" title="Tìm kiếm"></i>
+          <!-- GÓI CẢ ICON GIỎ + COUNT TRONG 1 DIV -->
+          <div class="cart-icon-container">
+            <i class="bx bx-cart" id="cart-icon" title="Giỏ hàng"></i>
+            <div class="cart-count" id="cart-count">0</div>
+          </div>
+
+          <!-- Popup giỏ hàng -->
+          <div class="cart-popup" id="cart-popup">
+            <h3><i class="bx bx-cart"></i> Giỏ hàng của bạn</h3>
+            <ul id="cart-items"></ul>
+
+            <div class="cart-total">Tổng: <span id="cart-total">$0</span></div>
+
+            <button class="checkout-btn">Thanh toán</button>
+          </div>
+
+          <i class="bx bx-user" title="Tài khoản"></i>
+          <div class="header__toggle" id="menu-toggle">
+            <i class="bx bx-menu" id="menu-icon"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="contact-section">
+      <div class="contact-section__map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54544.695710864304!2d105.79576379581096!3d21.02281475962849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9bd9861ca1%3A0xe7887f7b72ca17a9!2zSMOgIE7hu5lpLCBWaeG7h3QgTmFt!5e1!3m2!1svi!2sus!4v1751903590685!5m2!1svi!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+      <div class="contact-section__wrapper">
+        <div class="contact-info__block" data-aos="fade-right">
+          <h2 class="contact-info__title">THÔNG TIN LIÊN HỆ</h2>
+          <p class="contact-info__text">Số 1, Trịnh Văn Bô</p>
+          <p class="contact-info__text">Thành phố Hà Nội, Việt Nam</p>
+          <p class="contact-info__text">info@email.com</p>
+          <p class="contact-info__text contact-info__text--bold">
+            +1 800 123 45 67
+          </p>
+          <div class="contact-info__socials">
+            <i class="bx bxl-facebook contact-info__icon"></i>
+            <i class="bx bxl-twitter contact-info__icon"></i>
+            <i class="bx bxl-dribbble contact-info__icon"></i>
+            <i class="bx bxl-instagram contact-info__icon"></i>
+          </div>
+        </div>
+
+        <form
+          class="contact-form__container"
+          id="contactForm"
+          data-aos="fade-left"
+        >
+          <div class="contact-form__group">
+            <i class="bx bx-user contact-form__icon"></i>
+            <input
+              type="text"
+              name="name"
+              placeholder="Họ và tên"
+              class="contact-form__input"
+              required
+            />
+          </div>
+          <div class="contact-form__group">
+            <i class="bx bx-envelope contact-form__icon"></i>
+            <input
+              type="email"
+              name="email"
+              placeholder="Địa chỉ email"
+              class="contact-form__input"
+              required
+            />
+          </div>
+          <div class="contact-form__group">
+            <i class="bx bx-phone-call contact-form__icon"></i>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Số điện thoại"
+              class="contact-form__input"
+            />
+          </div>
+          <div class="contact-form__group">
+            <i class="bx bx-info-circle contact-form__icon"></i>
+            <input
+              type="text"
+              name="subject"
+              placeholder="Tiêu đề"
+              class="contact-form__input"
+            />
+          </div>
+          <div class="contact-form__group contact-form__group--full">
+            <i class="bx bx-pencil contact-form__icon"></i>
+            <textarea
+              name="message"
+              placeholder="Bạn cần hỗ trợ gì? Đừng ngần ngại liên hệ!"
+              rows="5"
+              class="contact-form__textarea"
+              required
+            ></textarea>
+          </div>
+          <input type="text" name="honeypot" style="display: none" />
+          <div class="contact-form__checkbox">
+            <input type="checkbox" required />
+            <label
+              >Tôi đồng ý rằng dữ liệu của tôi sẽ được
+              <a href="#">thu thập và lưu trữ</a>.</label
+            >
+          </div>
+          <div class="contact-form__group">
+            <button type="submit" class="contact-form__submit">
+              <i class="bx bx-send"></i>
+              <span class="btn-text">Gửi liên hệ</span>
+            </button>
+            <p class="contact-form__message" id="successMessage">
+              ✅ Gửi thành công! Cảm ơn bạn đã liên hệ.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <!-- Cột 1: Giới thiệu -->
+        <div class="footer-col">
+          <div class="footer-logo">Shoe<span>Style</span></div>
+          <ul>
+            <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+            <li><a href="#">Điều khoản dịch vụ</a></li>
+          </ul>
+        </div>
+
+        <!-- Cột 2: Thông tin liên hệ -->
+        <div class="footer-col">
+          <h3 class="footer-title">Liên hệ</h3>
+          <p>
+            <i class="bx bx-map"></i> 123 Đường Sneaker, Quận Style, TP. Hồ Chí
+            Minh
+          </p>
+          <p><i class="bx bx-phone"></i> 0909 888 777</p>
+          <p><i class="bx bx-envelope"></i> support@shoestyle.vn</p>
+        </div>
+
+        <!-- Cột 3: Mạng xã hội -->
+        <div class="footer-col">
+          <h3 class="footer-title">Kết nối với chúng tôi</h3>
+          <div class="social-links">
+            <a href="#"><i class="bx bxl-facebook-circle"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-tiktok"></i></a>
+            <a href="#"><i class="bx bxl-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2025 <strong>Shoe<span>Style</span></strong
+          >. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <div class="checkout-overlay" id="checkout-overlay">
+      <div class="checkout-modal glow-box">
+        <h2>
+          <i class="bx bx-credit-card"></i> <span>Thanh toán đơn hàng</span>
+        </h2>
+        <form id="checkout-form" class="checkout-form">
+          <div class="checkout-grid">
+            <!-- Thông tin khách hàng -->
+            <div class="checkout-left">
+              <div class="form-group">
+                <span>Họ và tên</span>
+                <input type="text" placeholder="Nhập họ và tên" required />
+              </div>
+              <div class="form-group">
+                <span>Email</span>
+                <input type="email" placeholder="Nhập email" required />
+              </div>
+              <div class="form-group">
+                <span>Số điện thoại</span>
+                <input type="tel" placeholder="Nhập số điện thoại" required />
+              </div>
+              <div class="form-group">
+                <span>Địa chỉ giao hàng</span>
+                <textarea
+                  placeholder="Nhập địa chỉ chi tiết"
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Phương thức thanh toán -->
+            <div class="checkout-right">
+              <div class="form-group payment-methods">
+                <span>Phương thức thanh toán</span>
+                <label
+                  ><input type="radio" name="payment" value="cod" required />
+                  <i class="bx bx-box"></i> <span>COD</span></label
+                >
+                <label
+                  ><input type="radio" name="payment" value="momo" />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png"
+                  />
+                  <span>MoMo</span></label
+                >
+                <label
+                  ><input type="radio" name="payment" value="card" />
+                  <i class="bx bx-credit-card"></i>
+                  <span>Thẻ ngân hàng</span></label
+                >
+              </div>
+
+              <!-- Các input phụ sẽ hiện ở đây -->
+              <div class="payment-details" id="payment-details"></div>
+            </div>
+          </div>
+
+          <!-- Nút xác nhận / hủy -->
+          <div class="form-actions">
+            <!-- Nút Xác nhận -->
+            <button type="submit" class="submit-btn">
+              <i class="bx bx-credit-card"></i> Xác nhận
+            </button>
+
+            <!-- Nút Hủy -->
+            <button type="button" id="cancel-checkout" class="cancel-btn">
+              <i class="bx bx-x"></i> Hủy
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- MODAL ĐĂNG NHẬP/ĐĂNG KÝ -->
+    <div class="auth-overlay" id="auth-overlay">
+      <div class="auth-modal">
+        <button class="close-auth" title="Đóng">
+          <i class="bx bx-x"></i>
+        </button>
+        <div class="auth-header">
+          <h2 id="auth-title"><i class="bx bx-log-in-circle"></i> Đăng nhập</h2>
+        </div>
+
+        <form class="auth-form" id="auth-form">
+          <div class="form-group">
+            <label><i class="bx bx-envelope"></i> Email</label>
+            <input type="email" placeholder="Nhập email" required />
+          </div>
+          <div class="form-group">
+            <label><i class="bx bx-lock-alt"></i> Mật khẩu</label>
+            <input type="password" placeholder="Nhập mật khẩu" required />
+          </div>
+
+          <!-- Form đăng ký bổ sung -->
+          <div class="form-group signup-only" style="display: none">
+            <label><i class="bx bx-user"></i> Họ và tên</label>
+            <input type="text" placeholder="Nhập họ và tên" />
+          </div>
+          <div class="form-group signup-only" style="display: none">
+            <label><i class="bx bx-lock-alt"></i> Xác nhận mật khẩu</label>
+            <input type="password" placeholder="Nhập lại mật khẩu" />
+          </div>
+
+          <button type="submit" class="auth-btn">Đăng nhập</button>
+
+          <p class="toggle-auth">
+            Chưa có tài khoản?
+            <a href="#" id="toggle-auth-link">Đăng ký</a>
+          </p>
+
+          <div class="social-login">
+            <p>Hoặc đăng nhập với:</p>
+            <div class="social-icons">
+              <i class="bx bxl-facebook-circle"></i>
+              <i class="bx bxl-google"></i>
+              <i class="bx bxl-github"></i>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="/js/header.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/card.js"></script>
+    <script src="/js/payment.js"></script>
+    <script src="/js/auth.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000 });
+
+      (function () {
+        emailjs.init("y_h0qPRike5M0rfSy");
+      })();
+
+      const form = document.getElementById("contactForm");
+      const successMessage = document.getElementById("successMessage");
+      const btnText = document.querySelector(".btn-text");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const honeypot = form.querySelector('input[name="honeypot"]');
+        if (honeypot.value !== "") return;
+        btnText.textContent = "Đang gửi...";
+
+        emailjs.sendForm("service_75j7i0g", "template_pucjh89", this).then(
+          () => {
+            successMessage.style.display = "block";
+            form.reset();
+            btnText.textContent = "GửI LIÊN HỆ";
+          },
+          (error) => {
+            alert("Lỗi: " + error.text);
+            btnText.textContent = "GửI LIÊN HỆ";
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

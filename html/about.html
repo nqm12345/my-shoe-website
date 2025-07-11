@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giới thiệu - ShoeStyle</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/card.css" />
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/checkout.css">
+    <link rel="stylesheet" href="/css/auth.css">
+  <link rel="stylesheet" href="/css/about.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+<body>
+
+      <header class="header">
+      <div class="header__container">
+        <div class="header__logo">Shoe<span>Style</span></div>
+
+        <nav class="header__nav" id="nav-menu">
+          <a href="/index.html" class="nav__link">Trang chủ</a>
+          <a href="/html/product.html" class="nav__link">Sản phẩm</a>
+          <a href="/html/about.html" class="nav__link">Giới thiệu</a>
+          <a href="/html/bloglist.html" class="nav__link">Tin tức</a>
+          <a href="/html/contact.html" class="nav__link">Liên hệ</a>
+        </nav>
+
+        <div class="header__icons">
+          <i class="bx bx-search" title="Tìm kiếm"></i>
+<!-- GÓI CẢ ICON GIỎ + COUNT TRONG 1 DIV -->
+<div class="cart-icon-container">
+  <i class="bx bx-cart" id="cart-icon" title="Giỏ hàng"></i>
+  <div class="cart-count" id="cart-count">0</div>
+</div>
+
+<!-- Popup giỏ hàng -->
+<div class="cart-popup" id="cart-popup">
+  <h3><i class="bx bx-cart"></i> Giỏ hàng của bạn</h3>
+  <ul id="cart-items"></ul>
+
+  <div class="cart-total">
+    Tổng: <span id="cart-total">$0</span>
+  </div>
+
+  <button class="checkout-btn">Thanh toán</button>
+</div>
+
+          <i class="bx bx-user" title="Tài khoản"></i>
+          <div class="header__toggle" id="menu-toggle">
+            <i class="bx bx-menu" id="menu-icon"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <div class="overlay"></div>
+    <div class="hero-content" data-aos="fade-up">
+      <h1>Về <span>ShoeStyle</span></h1>
+      <p>Không chỉ là giày, chúng tôi định hình phong cách sống của bạn</p>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="mission-vision">
+    <div class="container">
+      <div class="text-block" data-aos="fade-right">
+        <h2>Sứ mệnh của chúng tôi</h2>
+        <p>Chúng tôi mang đến những đôi giày chất lượng cao, thời trang, đáp ứng mọi nhu cầu từ phong cách đến tiện ích của người dùng.</p>
+      </div>
+      <div class="text-block" data-aos="fade-left">
+        <h2>Tầm nhìn</h2>
+        <p>Trở thành thương hiệu giày hàng đầu Việt Nam, là biểu tượng của sự tự tin và đổi mới trong thời trang đường phố.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team -->
+  <section class="team-section" data-aos="fade-up">
+    <h2 class="section-title">Đội ngũ của chúng tôi</h2>
+    <div class="team-grid">
+      <div class="team-card" data-aos="zoom-in">
+        <img src="/images/team1.jfif" alt="Team Member 1" />
+        <h3>Ma Dong Bốp (1/49)</h3>
+        <p>CEO & Founder</p>
+      </div>
+      <div class="team-card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="/images/team2.jpg" alt="Team Member 2" />
+        <h3>Trần Bình (39kg)</h3>
+        <p>Marketing Leader</p>
+      </div>
+      <div class="team-card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="/images/team3.jfif" alt="Team Member 3" />
+        <h3>Ly MT (1-9)</h3>
+        <p>Head of Product</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonial-section">
+    <h2 class="section-title" data-aos="fade-up">Khách hàng nói gì về chúng tôi</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial" data-aos="fade-right">
+        <img src="/images/user1.jfif" alt="Minh Tú" class="testimonial-avatar" />
+        <p>"Giày rất đẹp, chất lượng vượt mong đợi! Giao hàng nhanh, nhân viên tư vấn nhiệt tình."</p>
+        <h4>- MCuong</h4>
+      </div>
+      <div class="testimonial" data-aos="fade-up">
+        <img src="/images/user2.jfif" alt="Hoàng Nam" class="testimonial-avatar" />
+        <p>"Phong cách của ShoeStyle rất trẻ trung và hợp xu hướng. Tôi luôn tìm thấy mẫu mình thích."</p>
+        <h4>- Thầy X</h4>
+      </div>
+      <div class="testimonial" data-aos="fade-left">
+        <img src="/images/user3.jpg" alt="Phương Thảo" class="testimonial-avatar" />
+        <p>"Lần đầu mua thử mà đã nghiện. Website rất dễ dùng, hình ảnh thực tế đúng như mô tả."</p>
+        <h4>- Tú Sena (Cocain)</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics -->
+<section class="stats-section" data-aos="fade-up">
+  <div class="stat-box">
+    <i class='bx bx-user'></i>
+    <h3><span class="counter" data-target="120000">0</span>+</h3>
+    <p>Khách truy cập</p>
+  </div>
+  <div class="stat-box">
+    <i class='bx bx-star'></i>
+    <h3><span class="counter" data-target="8500">0</span>+</h3>
+    <p>Lượt đánh giá</p>
+  </div>
+  <div class="stat-box">
+    <i class='bx bx-cart'></i>
+    <h3><span class="counter" data-target="25000">0</span>+</h3>
+    <p>Sản phẩm đã bán</p>
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="footer-container">
+    <!-- Cột 1: Giới thiệu -->
+    <div class="footer-col">
+      <div class="footer-logo">Shoe<span>Style</span></div>
+      <ul>
+        <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
+        <li><a href="#">Chính sách đổi trả</a></li>
+        <li><a href="#">Chính sách bảo mật</a></li>
+        <li><a href="#">Điều khoản dịch vụ</a></li>
+      </ul>
+    </div>
+
+    <!-- Cột 2: Thông tin liên hệ -->
+    <div class="footer-col">
+      <h3 class="footer-title">Liên hệ</h3>
+      <p><i class='bx bx-map'></i> 123 Đường Sneaker, Quận Style, TP. Hồ Chí Minh</p>
+      <p><i class='bx bx-phone'></i> 0909 888 777</p>
+      <p><i class='bx bx-envelope'></i> support@shoestyle.vn</p>
+    </div>
+
+    <!-- Cột 3: Mạng xã hội -->
+    <div class="footer-col">
+      <h3 class="footer-title">Kết nối với chúng tôi</h3>
+      <div class="social-links">
+        <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-tiktok'></i></a>
+        <a href="#"><i class='bx bxl-youtube'></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 <strong>Shoe<span>Style</span></strong>. All rights reserved.</p>
+  </div>
+  </footer>
+
+<div class="checkout-overlay" id="checkout-overlay">
+  <div class="checkout-modal glow-box">
+    <h2><i class="bx bx-credit-card"></i> <span>Thanh toán đơn hàng</span></h2>
+    <form id="checkout-form" class="checkout-form">
+      <div class="checkout-grid">
+        <!-- Thông tin khách hàng -->
+        <div class="checkout-left">
+          <div class="form-group">
+            <span>Họ và tên</span>
+            <input type="text" placeholder="Nhập họ và tên" required />
+          </div>
+          <div class="form-group">
+            <span>Email</span>
+            <input type="email" placeholder="Nhập email" required />
+          </div>
+          <div class="form-group">
+            <span>Số điện thoại</span>
+            <input type="tel" placeholder="Nhập số điện thoại" required />
+          </div>
+          <div class="form-group">
+            <span>Địa chỉ giao hàng</span>
+            <textarea placeholder="Nhập địa chỉ chi tiết" required></textarea>
+          </div>
+        </div>
+
+        <!-- Phương thức thanh toán -->
+        <div class="checkout-right">
+          <div class="form-group payment-methods">
+            <span>Phương thức thanh toán</span>
+            <label><input type="radio" name="payment" value="cod" required /> <i class="bx bx-box"></i> <span>COD</span></label>
+            <label><input type="radio" name="payment" value="momo" /> <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" /> <span>MoMo</span></label>
+            <label><input type="radio" name="payment" value="card" /> <i class="bx bx-credit-card"></i> <span>Thẻ ngân hàng</span></label>
+          </div>
+
+          <!-- Các input phụ sẽ hiện ở đây -->
+          <div class="payment-details" id="payment-details"></div>
+        </div>
+      </div>
+
+      <!-- Nút xác nhận / hủy -->
+      <div class="form-actions">
+       <!-- Nút Xác nhận -->
+<button type="submit" class="submit-btn">
+  <i class="bx bx-credit-card"></i> Xác nhận
+</button>
+
+<!-- Nút Hủy -->
+<button type="button" id="cancel-checkout" class="cancel-btn">
+  <i class="bx bx-x"></i> Hủy
+</button>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- MODAL ĐĂNG NHẬP/ĐĂNG KÝ -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-modal">
+    <button class="close-auth" title="Đóng">
+    <i class="bx bx-x"></i>
+  </button>
+    <div class="auth-header">
+      <h2 id="auth-title"><i class="bx bx-log-in-circle"></i> Đăng nhập</h2>
+    </div>
+
+    <form class="auth-form" id="auth-form">
+      <div class="form-group">
+        <label><i class="bx bx-envelope"></i> Email</label>
+        <input type="email" placeholder="Nhập email" required />
+      </div>
+      <div class="form-group">
+        <label><i class="bx bx-lock-alt"></i> Mật khẩu</label>
+        <input type="password" placeholder="Nhập mật khẩu" required />
+      </div>
+
+      <!-- Form đăng ký bổ sung -->
+      <div class="form-group signup-only" style="display: none;">
+        <label><i class="bx bx-user"></i> Họ và tên</label>
+        <input type="text" placeholder="Nhập họ và tên" />
+      </div>
+      <div class="form-group signup-only" style="display: none;">
+        <label><i class="bx bx-lock-alt"></i> Xác nhận mật khẩu</label>
+        <input type="password" placeholder="Nhập lại mật khẩu" />
+      </div>
+
+      <button type="submit" class="auth-btn">Đăng nhập</button>
+
+      <p class="toggle-auth">
+        Chưa có tài khoản?
+        <a href="#" id="toggle-auth-link">Đăng ký</a>
+      </p>
+
+      <div class="social-login">
+        <p>Hoặc đăng nhập với:</p>
+        <div class="social-icons">
+          <i class="bx bxl-facebook-circle"></i>
+          <i class="bx bxl-google"></i>
+          <i class="bx bxl-github"></i>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="header.js"></script>
+    <script src="app.js"></script>
+    <script src="card.js"></script>
+    <script src="payment.js"></script>
+    <script src="auth.js"></script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,        // Mượt, không quá lâu
+    once: false,          // Cho phép hiện lại khi cuộn ngược lên
+    mirror: true,         // Ẩn khi cuộn qua, hiện lại khi cuộn về
+    offset: 100,          // Bắt đầu khi gần tới màn hình
+    easing: 'ease-out-cubic'
+  });
+</script>
+  <script>
+  const counters = document.querySelectorAll('.counter');
+
+  const runCounter = (counter) => {
+    const target = +counter.getAttribute('data-target');
+    const duration = 5000; // tổng thời gian chạy (ms)
+    const step = target / (duration / 16); // mỗi bước (60fps ~16ms)
+    
+    let current = 0;
+
+    const update = () => {
+      current += step;
+      if (current < target) {
+        counter.textContent = Math.floor(current).toLocaleString();
+        requestAnimationFrame(update);
+      } else {
+        counter.textContent = target.toLocaleString();
+      }
+    };
+
+    update();
+  };
+
+  const statsObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        counters.forEach(runCounter);
+        observer.disconnect(); // chỉ chạy 1 lần
+      }
+    });
+  }, {
+    threshold: 0.5,
+  });
+
+  statsObserver.observe(document.querySelector('.stats-section'));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+/* === SECTION LIÊN HỆ === */
+.contact-section {
+  background: 
+    linear-gradient(to bottom right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('images/bg-contact.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px;
+  color: #fff;
+}
+
+/* === CONTAINER === */
+.contact-container {
+  max-width: 1060px;
+  margin: 0 auto;
+  text-align: center;
+  animation: fadeInUp 1.2s ease both;
+  padding: 0 20px;
+}
+
+/* === TIÊU ĐỀ === */
+.contact-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 30px;
+  display: inline-block;
+  animation: glowText 1.2s ease-in-out infinite alternate;
+}
+
+.contact-title i {
+  margin-right: 10px;
+  color: #ff5722;
+}
+
+/* === FORM === */
+.subscribe-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.subscribe-form input[type="email"] {
+  padding: 14px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  min-width: 280px;
+  max-width: 100%;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  background: #fff;
+  color: #333;
+}
+
+.subscribe-form input:focus {
+  box-shadow: 0 0 10px #ff4081;
+}
+
+/* === BUTTON === */
+.subscribe-form button {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #a259ff, #6c63ff);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.subscribe-form button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #ff4081, #7c4dff);
+  transition: all 0.4s ease;
+  z-index: 0;
+}
+
+.subscribe-form button:hover::before {
+  left: 0;
+}
+
+.subscribe-form button:hover {
+  background: transparent;
+  transform: scale(1.05);
+}
+
+.subscribe-form button span {
+  position: relative;
+  z-index: 2;
+}
+
+/* === LIÊN HỆ === */
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.contact-box {
+  flex: 1 1 220px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInBox 1.5s ease forwards;
+  color: #222;
+}
+
+.contact-box i {
+  font-size: 1.8rem;
+  color: #6a1b9a;
+  margin-right: 10px;
+}
+
+.contact-box p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.contact-box a {
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBox {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 10px #6c63ff, 0 0 20px #6c63ff;
+  }
+  to {
+    text-shadow: 0 0 20px #ff4081, 0 0 40px #ff4081;
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  .contact-box {
+    text-align: center;
+  }
+
+  .contact-box i {
+    display: block;
+    margin-bottom: 8px;
+  }
+}

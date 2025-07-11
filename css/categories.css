@@ -1,0 +1,144 @@
+.categories {
+  padding: 60px 100px;
+}
+
+.categories__title {
+  font-size: 57px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #060606;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.categories__p {
+  text-align: center;
+  font-size: 14px;
+  color: #ff6300;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.categories__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.category__item {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.category__item:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.category__item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 87, 34, 0.15), transparent, rgba(255, 87, 34, 0.15));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.category__item:hover::before {
+  opacity: 1;
+  animation: shimmer 1.8s linear infinite;
+}
+
+.category__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.category__item img:hover {
+  transform: scale(1.05);
+}
+
+.category__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px;
+  color: #fff;
+  z-index: 2;
+}
+
+.category__info h3 {
+  font-size: 30px;
+  font-weight: 700;
+  position: absolute;
+  top: -20px;
+  left: 40px;
+  color: #fff;
+}
+
+.category__info a {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 6px 12px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.category__item:hover .category__info a {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .categories {
+    padding: 40px 20px;
+  }
+
+  .categories__title {
+    font-size: 36px;
+  }
+
+  .category__info h3 {
+    font-size: 24px;
+    top: -10px;
+    left: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .category__info a {
+    font-size: 14px;
+  }
+
+  .categories__grid {
+    grid-template-columns: 1fr;
+  }
+}

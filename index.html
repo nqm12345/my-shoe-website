@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/carousel.css" />
+    <link rel="stylesheet" href="css/categories.css" />
+    <link rel="stylesheet" href="css/card.css" />
+    <link rel="stylesheet" href="css/product-list.css">
+    <link rel="stylesheet" href="css/exclusive.css">
+    <link rel="stylesheet" href="css/policy.css" />
+    <link rel="stylesheet" href="css/brand.css">
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/checkout.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/hero-section.css">
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <div class="header__logo">Shoe<span>Style</span></div>
+
+        <nav class="header__nav" id="nav-menu">
+          <a href="index.html" class="nav__link">Trang chủ</a>
+          <a href="html/product.html" class="nav__link">Sản phẩm</a>
+          <a href="html/about.html" class="nav__link">Giới thiệu</a>
+          <a href="html/bloglist.html" class="nav__link">Tin tức</a>
+          <a href="html/contact.html" class="nav__link">Liên hệ</a>
+        </nav>
+
+        <div class="header__icons">
+          <i class="bx bx-search" title="Tìm kiếm"></i>
+<!-- GÓI CẢ ICON GIỎ + COUNT TRONG 1 DIV -->
+<div class="cart-icon-container">
+  <i class="bx bx-cart" id="cart-icon" title="Giỏ hàng"></i>
+  <div class="cart-count" id="cart-count">0</div>
+</div>
+
+<!-- Popup giỏ hàng -->
+<div class="cart-popup" id="cart-popup">
+  <h3><i class="bx bx-cart"></i> Giỏ hàng của bạn</h3>
+  <ul id="cart-items"></ul>
+
+  <div class="cart-total">
+    Tổng: <span id="cart-total">$0</span>
+  </div>
+
+  <button class="checkout-btn">Thanh toán</button>
+</div>
+
+          <i class="bx bx-user" title="Tài khoản"></i>
+          <div class="header__toggle" id="menu-toggle">
+            <i class="bx bx-menu" id="menu-icon"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="carousel">
+      <div class="list">
+        <div class="item">
+          <figure>
+            <img src="images/3.png" />
+          </figure>
+          <div class="content">
+            <p class="category">Giày Thể Thao</p>
+            <h2>NIKE D.01</h2>
+            <p class="description">
+              Mẫu giày thể thao cao cấp mang lại sự thoải mái và phong cách năng
+              động cho mọi hoạt động hàng ngày.
+            </p>
+            <div class="more">
+              <button>Thêm vào giỏ</button>
+              <button><i class="fa-solid fa-play"></i> Xem thêm</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <figure>
+            <img src="images/2.png" />
+          </figure>
+          <div class="content">
+            <p class="category">Giày Thể Thao</p>
+            <h2>NIKE D.02</h2>
+            <p class="description">
+              Thiết kế hiện đại với chất liệu thoáng khí, hỗ trợ vận động và
+              tăng hiệu suất luyện tập thể thao.
+            </p>
+            <div class="more">
+              <button>Thêm vào giỏ</button>
+              <button><i class="fa-solid fa-play"></i> Xem thêm</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+          <figure>
+            <img src="images/1.png" />
+          </figure>
+          <div class="content">
+            <p class="category">Giày Thể Thao</p>
+            <h2>NIKE D.03</h2>
+            <p class="description">
+              Sản phẩm nổi bật với kiểu dáng mạnh mẽ, đế giày êm ái giúp di
+              chuyển linh hoạt và bền bỉ.
+            </p>
+            <div class="more">
+              <button>Thêm vào giỏ</button>
+              <button><i class="fa-solid fa-play"></i> Xem thêm</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="arrows">
+        <button id="prev"><i class="fa-solid fa-chevron-left"></i></button>
+        <button id="next"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+
+      <div class="indicators">
+        <div class="number">02</div>
+        <ul>
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </section>
+
+<section class="categories">
+  <div class="categories__container" data-aos="fade-up">
+    <p class="categories__p" data-aos="fade-down">Cửa hàng của chúng tôi</p>
+    <h2 class="categories__title" data-aos="fade-up" data-aos-delay="100">Danh mục</h2>
+    
+    <div class="categories__grid">
+<div
+  class="category__item"
+  data-aos="zoom-in"
+  data-aos-delay="200"
+  onclick="window.location.href='/html/product.html'"
+>
+  <img src="images/sneaker-men.jpg" alt="Giày nam thể thao" />
+  <div class="category__info">
+    <h3>Giày Thể Thao Nam</h3>
+    <a href="#">Mua sắm ngay bây giờ <i class='bx bx-right-arrow-alt'></i></a>
+  </div>
+</div>
+
+
+      <div class="category__item" data-aos="zoom-in" data-aos-delay="300"  onclick="window.location.href='/html/product.html'">
+        <img src="images/sneaker-women.avif" alt="Giày nữ thời trang" />
+        <div class="category__info">
+          <h3>Giày Thời Trang Nữ</h3>
+          <a href="#">Mua sắm ngay bây giờ <i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+      </div>
+
+      <div class="category__item" data-aos="zoom-in" data-aos-delay="400"  onclick="window.location.href='/html/product.html'">
+        <img src="images/sneaker-kid.jpg" alt="Giày trẻ em" />
+        <div class="category__info">
+          <h3>Giày Trẻ Em</h3>
+          <a href="#">Mua sắm ngay bây giờ <i class='bx bx-right-arrow-alt'></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <section class="product-section">
+       <div class="product-section__header" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
+  <p class="categories__p">Cửa hàng của chúng tôi</p>
+  <h2 class="product-title" id="product-title">Sản phẩm mới</h2>
+  <div class="product-section__buttons">
+    <button class="tab-btn active" data-tab="new">Sản phẩm mới</button>
+    <button class="tab-btn" data-tab="hot">Bán chạy</button>
+    <button class="tab-btn" data-tab="sale">Giảm giá</button>
+  </div>
+       </div>
+
+
+      <div class="product-section__container">
+        <!-- PRODUCT CARDS, ví dụ bên dưới là loại "new" -->
+        <section class="main__product-cards" data-category="new" data-aos="fade-up" data-aos-delay="100">
+          <div class="badge-new">NEW</div>
+          <div class="logo__card">
+            <img src="images/nike-logo.png" alt="logo" />
+
+            <i class="bx bx-shopping-bag icon__card"></i>
+          </div>
+
+          <div class="imgBox">
+            <img
+              id="green"
+              class="green active"
+              src="images/nike-green.png"
+              alt="nike-green"
+            />
+            <img
+              id="red"
+              class="red"
+              src="images/nike-red.png"
+              alt="nike-green"
+            />
+            <img
+              id="blue"
+              class="blue"
+              src="images/nike-blue.png"
+              alt="nike-green"
+            />
+          </div>
+          <div class="info-cards">
+            <h2>Giày Nike Air Max 270</h2>
+            <p>
+              Giày Nike Air Max 270 mang đến sự thoải mái tối đa với thiết kế
+              hiện đại, tinh tế, cá tính, đột phá.
+            </p>
+          </div>
+
+          <div class="color-price">
+            <div class="colors">
+              <span class="color">Color:</span>
+              <div class="circles">
+                <span class="circle green active" id="green"></span>
+                <span class="circle red" id="red"></span>
+                <span class="circle blue" id="blue"></span>
+              </div>
+            </div>
+            <div class="price">
+              <span>$125</span>
+            </div>
+          </div>
+          <div class="btn">
+            <div class="layer"></div>
+            <button>Thêm vào giỏ hàng</button>
+          </div>
+        </section>
+        <section class="main__product-cards" data-category="new" data-aos="fade-right" data-aos-delay="200">
+          <div class="badge-new">NEW</div>
+          <div class="logo__card">
+            <img src="images/puma-green.png" alt="logo" />
+
+            <i class="bx bx-shopping-bag icon__card"></i>
+          </div>
+
+          <div class="imgBox">
+            <img
+              id="green"
+              class="green active"
+              src="images/puma-green.png"
+              alt="nike-green"
+            />
+            <img
+              id="red"
+              class="red"
+              src="images/puma-nike.png"
+              alt="nike-green"
+            />
+            <img
+              id="blue"
+              class="blue"
+              src="images/puma-blue.png"
+              alt="nike-green"
+            />
+          </div>
+          <div class="info-cards">
+            <h2>Giày PUMA Speedcat OG</h2>
+            <p>
+              PUMA Speedcat OG mang phong cách đua F1, thiết kế ôm chân, nhẹ, linh hoạt và cá tính.
+            </p>
+          </div>
+
+          <div class="color-price">
+            <div class="colors">
+              <span class="color">Color:</span>
+              <div class="circles">
+                <span class="circle green active" id="green"></span>
+                <span class="circle red" id="red"></span>
+                <span class="circle blue" id="blue"></span>
+              </div>
+            </div>
+            <div class="price">
+              <span>$125</span>
+            </div>
+          </div>
+          <div class="btn">
+            <div class="layer"></div>
+            <button>Thêm vào giỏ hàng</button>
+          </div>
+        </section>
+        <section class="main__product-cards" data-category="new" data-aos="fade-left" data-aos-delay="300">
+          <div class="badge-new">NEW</div>
+          <div class="logo__card">
+            <img src="images/nike-logo.png" alt="logo" />
+
+            <i class="bx bx-shopping-bag icon__card"></i>
+          </div>
+
+          <div class="imgBox">
+            <img
+              id="green"
+              class="green active"
+              src="images/adidas-green.png"
+              alt="nike-green"
+            />
+            <img
+              id="red"
+              class="red"
+              src="images/adidas-red.png"
+              alt="nike-green"
+            />
+            <img
+              id="blue"
+              class="blue"
+              src="images/adidas-blue.png"
+              alt="nike-green"
+            />
+          </div>
+          <div class="info-cards">
+            <h2>Giày adidas Predator</h2>
+            <p>
+             Adidas Predator 19.3 TF kiểm soát bóng tốt, bám sân chắc, lý tưởng cho lối chơi kỹ thuật.
+            </p>
+          </div>
+
+          <div class="color-price">
+            <div class="colors">
+              <span class="color">Color:</span>
+              <div class="circles">
+                <span class="circle green active" id="green"></span>
+                <span class="circle red" id="red"></span>
+                <span class="circle blue" id="blue"></span>
+              </div>
+            </div>
+            <div class="price">
+              <span>$125</span>
+            </div>
+          </div>
+          <div class="btn">
+            <div class="layer"></div>
+            <button>Thêm vào giỏ hàng</button>
+          </div>
+        </section>
+
+        <section class="main__product-cards" data-category="new" data-aos="zoom-in-up" data-aos-delay="400">
+          <div class="badge-new">NEW</div>
+          <div class="logo__card">
+            <img src="images/nike-logo.png" alt="logo" />
+
+            <i class="bx bx-shopping-bag icon__card"></i>
+          </div>
+
+          <div class="imgBox">
+            <img
+              id="ET44012B"
+              class="ET44012B active"
+              src="images/peak-women1.jpg"
+              alt="nike-green"
+            />
+            <img
+              id="ET41438E"
+              class="ET41438E"
+              src="images/peak-women2.jpg"
+              alt="nike-green"
+            />
+            <img
+              id="E244318B"
+              class="E244318B"
+              src="images/peak-women3.jpg"
+              alt="nike-green"
+            />
+          </div>
+          <div class="info-cards">
+            <h2>Giày Thể Thao Nữ PEAK Cookies Shoes</h2>
+            <p>
+             Giày PEAK Cookies Shoe nữ năng động, êm nhẹ, thiết kế trẻ trung, phù hợp đi chơi hoặc tập luyện.
+            </p>
+          </div>
+
+          <div class="color-price">
+            <div class="colors">
+              <span class="color">Color:</span>
+              <div class="circles">
+                <span class="circle ET44012B active" id="ET44012B"></span>
+                <span class="circle ET41438E" id="ET41438E"></span>
+                <span class="circle E244318B" id="E244318B"></span>
+              </div>
+            </div>
+            <div class="price">
+              <span>$125</span>
+            </div>
+          </div>
+          <div class="btn">
+            <div class="layer"></div>
+            <button>Thêm vào giỏ hàng</button>
+          </div>
+        </section>
+        <section class="main__product-cards" data-category="new" data-aos="flip-left" data-aos-delay="500">
+          <div class="badge-new">NEW</div>
+          <div class="logo__card">
+            <img src="images/nike-logo.png" alt="logo" />
+
+            <i class="bx bx-shopping-bag icon__card"></i>
+          </div>
+
+          <div class="imgBox">
+            <img
+              id="ET51798H"
+              class="ET51798H active"
+              src="images/peak-women4.jpg"
+              alt="nike-green"
+            />
+            <img
+              id="bfc5d0"
+              class="bfc5d0"
+              src="images/peak-women5.jpg"
+              alt="nike-green"
+            />
+            <img
+              id="d8c0a8"
+              class="d8c0a8"
+              src="images/peak-women6.jpg"
+              alt="nike-green"
+            />
+          </div>
+          <div class="info-cards">
+            <h2>Giày Chạy Bộ Nữ PEAK Taichi 6.0 Pro</h2>
+            <p>
+             PEAK Taichi 6.0 Pro nữ – giày nhẹ, thoáng khí, giảm sốc tốt, phù hợp cho chạy bộ và tập luyện hàng ngày.
+            </p>
+          </div>
+
+          <div class="color-price">
+            <div class="colors">
+              <span class="color">Color:</span>
+              <div class="circles">
+                <span class="circle ET51798H active" id="ET51798H"></span>
+                <span class="circle bfc5d0" id="bfc5d0"></span>
+                <span class="circle d8c0a8" id="d8c0a8"></span>
+              </div>
+            </div>
+            <div class="price">
+              <span>$125</span>
+            </div>
+          </div>
+          <div class="btn">
+            <div class="layer"></div>
+            <button>Thêm vào giỏ hàng</button>
+          </div>
+        </section>
+        <section class="main__product-cards" data-category="new" data-aos="flip-up" data-aos-delay="600">
+          <div class="badge-new">NEW</div>
+          <div class="logo__card">
+            <img src="images/nike-logo.png" alt="logo" />
+
+            <i class="bx bx-shopping-bag icon__card"></i>
+          </div>
+
+          <div class="imgBox">
+            <img
+              id="red"
+              class="red active"
+              src="images/peak-kid1.jpg"
+              alt="nike-green"
+            />
+            <img
+              id="orange"
+              class="orange"
+              src="images/peak-kid2.jpg"
+              alt="nike-green"
+            />
+            <img
+              id="yellow"
+              class="yellow"
+              src="images/peak-kid3.jpg"
+              alt="nike-green"
+            />
+          </div>
+          <div class="info-cards">
+            <h2>Giày Trẻ Em PEAK KID Game Shoes</h2>
+            <p>
+              PEAK KID Game 2 – êm, bám sân, bảo vệ cổ chân cho bé chơi bóng rổ, kiểu dáng đẹp nhất.
+            </p>
+          </div>
+
+          <div class="color-price">
+            <div class="colors">
+              <span class="color">Color:</span>
+              <div class="circles">
+                <span class="circle red active" id="red"></span>
+                <span class="circle orange" id="orange"></span>
+                <span class="circle yellow" id="yellow"></span>
+              </div>
+            </div>
+            <div class="price">
+              <span>$125</span>
+            </div>
+          </div>
+          <div class="btn">
+            <div class="layer"></div>
+            <button>Thêm vào giỏ hàng</button>
+          </div>
+        </section>
+<!-- PRODUCT BÁN CHẠY -->
+<section
+  class="main__product-cards"
+  data-category="hot"
+  style="display: none"
+  data-aos="fade-up"
+  data-aos-delay="100"
+>
+  <div class="badge-hot"><i class="bx bxs-hot"></i> BÁN CHẠY</div>
+  <div class="logo__card">
+    <img src="images/nike-logo.png" alt="logo" />
+    <i class="bx bx-shopping-bag icon__card"></i>
+  </div>
+
+  <div class="imgBox">
+    <img id="green" class="green active" src="images/nike-green.png" alt="nike-green" />
+    <img id="red" class="red" src="images/nike-red.png" alt="nike-green" />
+    <img id="blue" class="blue" src="images/nike-blue.png" alt="nike-green" />
+  </div>
+
+  <div class="info-cards">
+    <h2>Giày Nike Air Max 270</h2>
+    <p>Giày Nike Air Max 270 mang đến sự thoải mái tối đa với thiết kế hiện đại.</p>
+  </div>
+
+  <div class="color-price">
+    <div class="colors">
+      <span class="color">Color:</span>
+      <div class="circles">
+        <span class="circle green active" id="green"></span>
+        <span class="circle red" id="red"></span>
+        <span class="circle blue" id="blue"></span>
+      </div>
+    </div>
+    <div class="price">
+      <span>$125</span>
+    </div>
+  </div>
+  <div class="btn">
+    <div class="layer"></div>
+    <button>Thêm vào giỏ hàng</button>
+  </div>
+</section>
+
+<section
+  class="main__product-cards"
+  data-category="hot"
+  style="display: none"
+  data-aos="fade-up"
+  data-aos-delay="200"
+>
+  <div class="badge-hot"><i class="bx bxs-hot"></i> BÁN CHẠY</div>
+  <div class="logo__card">
+    <img src="images/nike-logo.png" alt="logo" />
+    <i class="bx bx-shopping-bag icon__card"></i>
+  </div>
+
+  <div class="imgBox">
+    <img id="green" class="green active" src="images/nike-green.png" alt="nike-green" />
+    <img id="red" class="red" src="images/nike-red.png" alt="nike-green" />
+    <img id="blue" class="blue" src="images/nike-blue.png" alt="nike-green" />
+  </div>
+
+  <div class="info-cards">
+    <h2>Giày Nike Air Max 270</h2>
+    <p>Giày Nike Air Max 270 mang đến sự thoải mái tối đa với thiết kế hiện đại.</p>
+  </div>
+
+  <div class="color-price">
+    <div class="colors">
+      <span class="color">Color:</span>
+      <div class="circles">
+        <span class="circle green active" id="green"></span>
+        <span class="circle red" id="red"></span>
+        <span class="circle blue" id="blue"></span>
+      </div>
+    </div>
+    <div class="price">
+      <span>$125</span>
+    </div>
+  </div>
+  <div class="btn">
+    <div class="layer"></div>
+    <button>Thêm vào giỏ hàng</button>
+  </div>
+</section>
+
+<!-- PRODUCT GIẢM GIÁ -->
+<section
+  class="main__product-cards"
+  data-category="sale"
+  style="display: none"
+  data-aos="zoom-in-up"
+  data-aos-delay="100"
+>
+  <div class="badge badge--sale">Giảm 22%</div>
+  <div class="logo__card">
+    <img src="images/nike-logo.png" alt="logo" />
+    <i class="bx bx-shopping-bag icon__card"></i>
+  </div>
+
+  <div class="imgBox">
+    <img id="green" class="green active" src="images/nike-green.png" alt="nike-green" />
+    <img id="red" class="red" src="images/nike-red.png" alt="nike-green" />
+    <img id="blue" class="blue" src="images/nike-blue.png" alt="nike-green" />
+  </div>
+
+  <div class="info-cards">
+    <h2>Giày Nike Air Max 270</h2>
+    <p>Giày Nike Air Max 270 mang đến sự thoải mái tối đa với thiết kế hiện đại.</p>
+  </div>
+
+  <div class="color-price">
+    <div class="colors">
+      <span class="color">Color:</span>
+      <div class="circles">
+        <span class="circle green active" id="green"></span>
+        <span class="circle red" id="red"></span>
+        <span class="circle blue" id="blue"></span>
+      </div>
+    </div>
+    <div class="price">
+      <span class="old-price">$160</span>
+      <span class="new-price">$125</span>
+    </div>
+  </div>
+  <div class="btn">
+    <div class="layer"></div>
+    <button>Thêm vào giỏ hàng</button>
+  </div>
+</section>
+
+<section
+  class="main__product-cards"
+  data-category="sale"
+  style="display: none"
+  data-aos="zoom-in-up"
+  data-aos-delay="200"
+>
+  <div class="badge badge--sale">Giảm 22%</div>
+  <div class="logo__card">
+    <img src="images/nike-logo.png" alt="logo" />
+    <i class="bx bx-shopping-bag icon__card"></i>
+  </div>
+
+  <div class="imgBox">
+    <img id="green" class="green active" src="images/nike-green.png" alt="nike-green" />
+    <img id="red" class="red" src="images/nike-red.png" alt="nike-green" />
+    <img id="blue" class="blue" src="images/nike-blue.png" alt="nike-green" />
+  </div>
+
+  <div class="info-cards">
+    <h2>Giày Nike Air Max 270</h2>
+    <p>Giày Nike Air Max 270 mang đến sự thoải mái tối đa với thiết kế hiện đại.</p>
+  </div>
+
+  <div class="color-price">
+    <div class="colors">
+      <span class="color">Color:</span>
+      <div class="circles">
+        <span class="circle green active" id="green"></span>
+        <span class="circle red" id="red"></span>
+        <span class="circle blue" id="blue"></span>
+      </div>
+    </div>
+    <div class="price">
+      <span class="old-price">$160</span>
+      <span class="new-price">$125</span>
+    </div>
+  </div>
+  <div class="btn">
+    <div class="layer"></div>
+    <button>Thêm vào giỏ hàng</button>
+  </div>
+</section>
+
+      </div>
+    </section>
+
+
+<section class="exclusive-product-section" data-aos="fade-up" data-aos-delay="100">
+  <h2 class="exclusive-title">SẢN PHẨM ĐỘC QUYỀN SẮP RA MẮT</h2>
+
+  <!-- Nike Card -->
+  <div class="product-card nike" data-aos="fade-right" data-aos-delay="200">
+    <div class="card-header">NIKE GRAPHIC STUDIO POSTER SHOW</div>
+    <div class="card-subtitle">
+      PROCEEDS TO BENEFIT C.H.A.P.<br />
+      <span>(Children's Healing Art Project)</span>
+    </div>
+    <img src="images/test.png" alt="Nike Shoes" class="product-image" />
+    <div class="card-details">
+      <div class="event-date">
+        <span>Saturday</span>
+        <strong>JUNE 15TH</strong>
+      </div>
+      <div class="event-info">
+        <div class="line line-1">AT DISJECTA 7PM–11PM</div>
+        <div class="line line-2">FAMILIES & KIDS: 5PM–7PM</div>
+        <div class="line line-3">8371 N INTERSTATE AVE, PDX</div>
+      </div>
+      <div class="hashtag">#NIKEGRAPHICSTUDIO</div>
+    </div>
+    <div class="card-footer">
+      <span>Premier Press</span>
+      <img src="images/logo-nike-while.jpg" alt="Nike Logo" />
+    </div>
+  </div>
+
+  <!-- Reebok Card -->
+  <div class="product-card reebok" data-aos="zoom-in" data-aos-delay="300">
+    <img src="images/bg-pattern.png" alt="Pattern" class="bg-pattern" />
+    <img src="images/logo-reebok.png" alt="Reebok Logo" class="brand-logo" />
+    <div class="text-top">
+      <span class="strong">STRONG</span>
+      <span class="ride">RIDE</span>
+    </div>
+    <div class="diamond-pattern"></div>
+    <img src="images/shoe-test.png" alt="Reebok Shoe" class="product-image" />
+    <div class="text-bottom">
+      <div class="floatride">
+        <strong>FLOATRIDE</strong> <span class="arrow">▶▶</span>
+      </div>
+      <div class="subtext">RUN <span class="flex">FLEXWEAVE</span></div>
+      <div class="footer-links">
+        <span>@REEBOKGERMANY</span>
+        <span>#FEELTHEFLOATRIDE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Puma Card -->
+  <div class="product-card puma" data-aos="fade-left" data-aos-delay="400">
+    <div class="puma-bg-text">THIS IS THE FUTURE</div>
+    <img src="images/puma-nike.png" alt="Puma Shoes" class="product-image" />
+    <div class="puma-left-info">
+      <div class="puma-future">FUTURE</div>
+      <div class="puma-pack">ANTHEM PACK</div>
+    </div>
+    <div class="puma-brand">
+      <img src="images/puma-logo.png" alt="Puma Logo" />
+    </div>
+  </div>
+</section>
+
+
+<div class="shop" data-aos="fade-up">
+  <p class="categories__p">Cửa hàng của chúng tôi</p>
+  <h2 data-aos="fade-down" data-aos-delay="100">Hàng mới về</h2>
+
+  <div class="pl-main-wrapper">
+    <!-- Product Area -->
+    <section class="pl-product-area" data-aos="fade-left" data-aos-delay="300">
+      <div class="pl-grid" id="pl-grid">
+        <!-- Product cards sẽ được render bằng JS -->
+      </div>
+      <div class="pl-pagination" id="pl-pagination"></div>
+    </section>
+  </div>
+</div>
+
+
+<section class="brand-partner">
+  <!-- Logo brands -->
+  <div class="brand-marquee" data-aos="fade-down" data-aos-duration="800">
+    <div class="brand-logos">
+      <img src="https://inkythuatso.com/uploads/images/2021/11/logo-nike-inkythuatso-2-01-04-15-42-44.jpg" alt="Nike" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNOhHZ-0c3De3DFuwuosHkDnJRDwhDb-tLdw&s" alt="Puma" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0nFIr4ATZXTBTDlefBxrG1VcEoV_aTF3u_g&s" alt="New Balance" />
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxNfLec34ajtI8SvCU1yrPQuBs1es-PoC-Ig&s" alt="Asics" />
+      <img src="https://drake.vn/image/catalog/H%C3%ACnh%20content/logo%20gi%C3%A0y%20Converse/logo-gi%C3%A0y-converse-02.jpg" alt="Converse" />
+    </div>
+  </div>
+
+  <!-- Content with image -->
+  <div class="brand-inner">
+    <div class="brand-content" data-aos="fade-right" data-aos-duration="1000">
+      <p class="small-title">THIẾT KẾ THỂ THAO</p>
+      <h2 class="main-title">CHÚNG TÔI HỢP TÁC VỚI<br />CÁC THƯƠNG HIỆU GIÀY CAO CẤP</h2>
+      <button class="contact-button">LIÊN HỆ</button>
+    </div>
+
+    <div class="brand-image" data-aos="fade-left" data-aos-duration="1000">
+      <img src="images/model-shoes.png" alt="Người mẫu với giày thể thao" />
+    </div>
+  </div>
+</section>
+
+
+<section class="blog-section">
+  <div class="blog-header" data-aos="fade-down">
+    <p class="blog-subtitle">BLOG GẦN ĐÂY CỦA CHÚNG TÔI</p>
+    <h2 class="blog-title">TIN TỨC & BÀI VIẾT</h2>
+  </div>
+  <div class="blog-grid" id="blog-container"></div>
+</section>
+
+
+<section class="hero-section">
+  <div class="hero-content" data-aos="zoom-in" data-aos-duration="1000">
+    <p class="hero-subtitle">CHƠI THỂ THAO CÙNG NHỮNG THƯƠNG HIỆU TỐT NHẤT</p>
+    <h1 class="hero-title">TRANG PHỤC VÀ PHỤ KIỆN THỂ THAO ĐẸP MẮT</h1>
+    <a href="/html/product.html" class="hero-button">MUA SẮM NGAY</a>
+  </div>
+</section>
+
+
+  <footer class="footer">
+  <div class="footer-container">
+    <!-- Cột 1: Giới thiệu -->
+    <div class="footer-col">
+      <div class="footer-logo">Shoe<span>Style</span></div>
+      <ul>
+        <li><a href="/gioi-thieu.html">Giới thiệu</a></li>
+        <li><a href="#">Chính sách đổi trả</a></li>
+        <li><a href="#">Chính sách bảo mật</a></li>
+        <li><a href="#">Điều khoản dịch vụ</a></li>
+      </ul>
+    </div>
+
+    <!-- Cột 2: Thông tin liên hệ -->
+    <div class="footer-col">
+      <h3 class="footer-title">Liên hệ</h3>
+      <p><i class='bx bx-map'></i> 123 Đường Sneaker, Quận Style, TP. Hồ Chí Minh</p>
+      <p><i class='bx bx-phone'></i> 0909 888 777</p>
+      <p><i class='bx bx-envelope'></i> support@shoestyle.vn</p>
+    </div>
+
+    <!-- Cột 3: Mạng xã hội -->
+    <div class="footer-col">
+      <h3 class="footer-title">Kết nối với chúng tôi</h3>
+      <div class="social-links">
+        <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-tiktok'></i></a>
+        <a href="#"><i class='bx bxl-youtube'></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 <strong>Shoe<span>Style</span></strong>. All rights reserved.</p>
+  </div>
+  </footer>
+
+
+<div class="checkout-overlay" id="checkout-overlay">
+  <div class="checkout-modal glow-box">
+    <h2><i class="bx bx-credit-card"></i> <span>Thanh toán đơn hàng</span></h2>
+    <form id="checkout-form" class="checkout-form">
+      <div class="checkout-grid">
+        <!-- Thông tin khách hàng -->
+        <div class="checkout-left">
+          <div class="form-group">
+            <span>Họ và tên</span>
+            <input type="text" placeholder="Nhập họ và tên" required />
+          </div>
+          <div class="form-group">
+            <span>Email</span>
+            <input type="email" placeholder="Nhập email" required />
+          </div>
+          <div class="form-group">
+            <span>Số điện thoại</span>
+            <input type="tel" placeholder="Nhập số điện thoại" required />
+          </div>
+          <div class="form-group">
+            <span>Địa chỉ giao hàng</span>
+            <textarea placeholder="Nhập địa chỉ chi tiết" required></textarea>
+          </div>
+        </div>
+
+        <!-- Phương thức thanh toán -->
+        <div class="checkout-right">
+          <div class="form-group payment-methods">
+            <span>Phương thức thanh toán</span>
+            <label><input type="radio" name="payment" value="cod" required /> <i class="bx bx-box"></i> <span>COD</span></label>
+            <label><input type="radio" name="payment" value="momo" /> <img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png" /> <span>MoMo</span></label>
+            <label><input type="radio" name="payment" value="card" /> <i class="bx bx-credit-card"></i> <span>Thẻ ngân hàng</span></label>
+          </div>
+
+          <!-- Các input phụ sẽ hiện ở đây -->
+          <div class="payment-details" id="payment-details"></div>
+        </div>
+      </div>
+
+      <!-- Nút xác nhận / hủy -->
+      <div class="form-actions">
+       <!-- Nút Xác nhận -->
+<button type="submit" class="submit-btn">
+  <i class="bx bx-credit-card"></i> Xác nhận
+</button>
+
+<!-- Nút Hủy -->
+<button type="button" id="cancel-checkout" class="cancel-btn">
+  <i class="bx bx-x"></i> Hủy
+</button>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- MODAL ĐĂNG NHẬP/ĐĂNG KÝ -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-modal">
+    <button class="close-auth" title="Đóng">
+    <i class="bx bx-x"></i>
+  </button>
+    <div class="auth-header">
+      <h2 id="auth-title"><i class="bx bx-log-in-circle"></i> Đăng nhập</h2>
+    </div>
+
+    <form class="auth-form" id="auth-form">
+      <div class="form-group">
+        <label><i class="bx bx-envelope"></i> Email</label>
+        <input type="email" placeholder="Nhập email" required />
+      </div>
+      <div class="form-group">
+        <label><i class="bx bx-lock-alt"></i> Mật khẩu</label>
+        <input type="password" placeholder="Nhập mật khẩu" required />
+      </div>
+
+      <!-- Form đăng ký bổ sung -->
+      <div class="form-group signup-only" style="display: none;">
+        <label><i class="bx bx-user"></i> Họ và tên</label>
+        <input type="text" placeholder="Nhập họ và tên" />
+      </div>
+      <div class="form-group signup-only" style="display: none;">
+        <label><i class="bx bx-lock-alt"></i> Xác nhận mật khẩu</label>
+        <input type="password" placeholder="Nhập lại mật khẩu" />
+      </div>
+
+      <button type="submit" class="auth-btn">Đăng nhập</button>
+
+      <p class="toggle-auth">
+        Chưa có tài khoản?
+        <a href="#" id="toggle-auth-link">Đăng ký</a>
+      </p>
+
+      <div class="social-login">
+        <p>Hoặc đăng nhập với:</p>
+        <div class="social-icons">
+          <i class="bx bxl-facebook-circle"></i>
+          <i class="bx bxl-google"></i>
+          <i class="bx bxl-github"></i>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,        // Mượt, không quá lâu
+    once: false,          // Cho phép hiện lại khi cuộn ngược lên
+    mirror: true,         // Ẩn khi cuộn qua, hiện lại khi cuộn về
+    offset: 100,          // Bắt đầu khi gần tới màn hình
+    easing: 'ease-out-cubic'
+  });
+</script>
+
+    <script src="js/header.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/card.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/policy.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/blogData.js"></script>
+    <script src="js/renderBlogHome.js"></script>
+    <script src="js/brandSlider.js"></script>
+  </body>
+</html>

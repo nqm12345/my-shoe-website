@@ -1,0 +1,29 @@
+
+@import url("https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 15px;
+  font-family: "Oswald", sans-serif;
+  background: #ffffff;
+  & * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,134 @@
+/* ==== Header styles ==== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 16px 32px;
+}
+
+
+.header__container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header__logo {
+  font-size: 28px;
+  font-weight: 600;
+  color: #222;
+}
+
+.header__logo span {
+  color: #ff5722;
+}
+
+.header__icons {
+  display: flex;
+  align-items: center;
+}
+
+.header__icons i {
+  font-size: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+  color: #444;
+  transition: color 0.3s ease;
+}
+
+.header__icons i:hover {
+  color: #ff5722;
+}
+
+.header__toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* ==== Navigation styles ==== */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav__link {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 4px 0;
+  transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+  color: #ff5722;
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #ff5722;
+  transition: width 0.3s;
+}
+
+.nav__link:hover::after {
+  width: 100%;
+}
+
+/* ==== Responsive ==== */
+@media (max-width: 960px) {
+  .header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+
+  .header__nav.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .header__toggle {
+    display: block;
+  }
+
+  /* Hide nav on large screens */
+  .header__nav:not(.show) {
+    display: flex;
+  }
+}
+.nav__link.active {
+  color: #ff5722;
+}
+
+.nav__link.active::after {
+  width: 100%;
+}
