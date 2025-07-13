@@ -1,55 +1,61 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== LẤY PHẦN TỬ =====
+  const prevBtn   = document.getElementById('prev');
+  const nextBtn   = document.getElementById('next');
+  const carousel  = document.querySelector('.carousel');
+  if (!carousel || !prevBtn || !nextBtn) return;   // trang không có carousel → thoát
 
-let prevBtn = document.getElementById('prev');
-let nextBtn = document.getElementById('next');
-let carousel = document.querySelector('.carousel');
-let items = carousel.querySelectorAll('.list .item');
-let indicator = carousel.querySelector('.indicators');
-let dots = indicator.querySelectorAll('.indicators ul li');
+  const items     = carousel.querySelectorAll('.list .item');
+  const indicator = carousel.querySelector('.indicators');
+  const dots      = indicator.querySelectorAll('ul li');
+  const numberBox = indicator.querySelector('.number');
 
-let active = 0;
-let firstPosition = 0;
-let lastPosition = items.length - 1;
-let autoPlay;
+  // ===== BIẾN TRẠNG THÁI =====
+  let active        = 0;
+  const last        = items.length - 1;
+  let autoPlayId;
 
-const startAutoPlay = () => {
-    clearInterval(autoPlay); 
-    autoPlay = setInterval(() => {
-        nextBtn.click();
-    }, 5000);
-}
-startAutoPlay();
+  // ===== HÀM TIỆN ÍCH =====
+  const startAutoPlay = () => {
+    clearInterval(autoPlayId);
+    autoPlayId = setInterval(() => nextBtn.click(), 5000);
+  };
 
-const setSlider = () => {
-    let itemActiveOld = carousel.querySelector('.list .item.active');
-    if(itemActiveOld) itemActiveOld.classList.remove('active');
+  const setSlider = () => {
+    /* đổi item */
+    carousel.querySelector('.list .item.active')?.classList.remove('active');
     items[active].classList.add('active');
 
-    let dotActiveOld = indicator.querySelector('.indicators ul li.active');
-    if(dotActiveOld) dotActiveOld.classList.remove('active');
+    /* đổi dot */
+    indicator.querySelector('ul li.active')?.classList.remove('active');
     dots[active].classList.add('active');
 
-    indicator.querySelector('.number').innerText = '0' + (active + 1);
-    startAutoPlay();
-}
-setSlider();
+    /* số thứ tự */
+    numberBox.textContent = String(active + 1).padStart(2, '0');
 
-nextBtn.onclick = () => {
-    active = active + 1 > lastPosition ? 0 : active + 1;
+    startAutoPlay();
+  };
+
+  // ===== KHỞI TẠO =====
+  setSlider();
+
+  // ===== SỰ KIỆN =====
+  nextBtn.onclick = () => {
+    active = (active + 1) > last ? 0 : active + 1;
     carousel.style.setProperty('--calculation', 1);
     setSlider();
-}
-prev.onclick = () => {
-    active = active - 1 < firstPosition ? lastPosition : active - 1;
+  };
+
+  prevBtn.onclick = () => {
+    active = (active - 1) < 0 ? last : active - 1;
     carousel.style.setProperty('--calculation', -1);
     setSlider();
-    clearInterval(autoPlay);
-    autoPlay = setInterval(() => {
-        nextBtn.click();
-    }, 5000);
-}
-dots.forEach((item, position) => {
-    item.onclick = () => {
-        active = position;
-        setSlider();
-    }
-})
+  };
+
+  dots.forEach((dot, i) => {
+    dot.onclick = () => {
+      active = i;
+      setSlider();
+    };
+  });
+});

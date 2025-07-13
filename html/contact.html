@@ -354,78 +354,52 @@
       </div>
     </footer>
 
-    <div class="checkout-overlay" id="checkout-overlay">
-      <div class="checkout-modal glow-box">
-        <h2>
-          <i class="bx bx-credit-card"></i> <span>Thanh toán đơn hàng</span>
-        </h2>
-        <form id="checkout-form" class="checkout-form">
-          <div class="checkout-grid">
-            <!-- Thông tin khách hàng -->
-            <div class="checkout-left">
-              <div class="form-group">
-                <span>Họ và tên</span>
-                <input type="text" placeholder="Nhập họ và tên" required />
-              </div>
-              <div class="form-group">
-                <span>Email</span>
-                <input type="email" placeholder="Nhập email" required />
-              </div>
-              <div class="form-group">
-                <span>Số điện thoại</span>
-                <input type="tel" placeholder="Nhập số điện thoại" required />
-              </div>
-              <div class="form-group">
-                <span>Địa chỉ giao hàng</span>
-                <textarea
-                  placeholder="Nhập địa chỉ chi tiết"
-                  required
-                ></textarea>
-              </div>
-            </div>
+<!-- === MINIMAL CHECKOUT MODAL === -->
+<div class="checkout-overlay" id="checkout-overlay">
+  <div class="checkout-modal glow-box">
+    <h2><i class="bx bx-credit-card"></i> Thanh toán</h2>
 
-            <!-- Phương thức thanh toán -->
-            <div class="checkout-right">
-              <div class="form-group payment-methods">
-                <span>Phương thức thanh toán</span>
-                <label
-                  ><input type="radio" name="payment" value="cod" required />
-                  <i class="bx bx-box"></i> <span>COD</span></label
-                >
-                <label
-                  ><input type="radio" name="payment" value="momo" />
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png"
-                  />
-                  <span>MoMo</span></label
-                >
-                <label
-                  ><input type="radio" name="payment" value="card" />
-                  <i class="bx bx-credit-card"></i>
-                  <span>Thẻ ngân hàng</span></label
-                >
-              </div>
-
-              <!-- Các input phụ sẽ hiện ở đây -->
-              <div class="payment-details" id="payment-details"></div>
-            </div>
-          </div>
-
-          <!-- Nút xác nhận / hủy -->
-          <div class="form-actions">
-            <!-- Nút Xác nhận -->
-            <button type="submit" class="submit-btn">
-              <i class="bx bx-credit-card"></i> Xác nhận
-            </button>
-
-            <!-- Nút Hủy -->
-            <button type="button" id="cancel-checkout" class="cancel-btn">
-              <i class="bx bx-x"></i> Hủy
-            </button>
-          </div>
-        </form>
+    <form id="checkout-form" class="checkout-form">
+      <!-- Thông tin khách hàng -->
+      <div class="form-group">
+        <span>Họ tên</span>
+        <input type="text" placeholder="Nhập tên" required />
       </div>
-    </div>
+      <div class="form-group">
+        <span>SĐT</span>
+        <input type="tel" placeholder="Nhập số điện thoại" required />
+      </div>
+      <div class="form-group">
+        <span>Địa chỉ</span>
+        <textarea placeholder="Nhập địa chỉ" required></textarea>
+      </div>
+
+      <!-- Phương thức -->
+      <div class="form-group">
+        <span>Phương thức thanh toán</span>
+        <select id="payment-select" required>
+          <option value="cod">COD</option>
+          <option value="bank">Chuyển khoản</option>
+          <option value="momo">Momo</option>
+        </select>
+      </div>
+
+      <!-- Chi tiết phụ động -->
+      <div id="payment-details"></div>
+
+      <!-- Nút -->
+      <div class="form-actions">
+        <button type="submit" class="submit-btn">
+          <i class="bx bx-credit-card"></i> Xác nhận
+        </button>
+        <button type="button" id="cancel-checkout" class="cancel-btn">
+          <i class="bx bx-x"></i> Hủy
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
 
     <!-- MODAL ĐĂNG NHẬP/ĐĂNG KÝ -->
     <div class="auth-overlay" id="auth-overlay">

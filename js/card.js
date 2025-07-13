@@ -84,39 +84,36 @@ document.addEventListener("DOMContentLoaded", () => {
       checkoutOverlay.style.display = "flex"; // Hiện modal thanh toán
     });
   }
+if (checkoutForm && checkoutOverlay) {
+  const paymentSelect = document.getElementById("payment-select");
+  const templates = {
+    momo: `<div class="form-group"><span>Số MoMo</span><input type="tel" placeholder="Nhập số MoMo" required /></div>`,
+    bank: `<div class="form-group"><span>Số tài khoản</span><input type="text" placeholder="Nhập số tài khoản" required /></div>`
+  };
 
-  if (checkoutForm && checkoutOverlay) {
-    const paymentInputs = document.querySelectorAll("input[name='payment']");
-    const templates = {
-      momo: `<div class="form-group"><span>Số MoMo</span><input type="tel" placeholder="Nhập số MoMo" required /></div>`,
-      card: `<div class="form-group"><span>Số thẻ</span><input type="text" placeholder="Nhập số thẻ" required /></div>
-             <div class="form-group"><span>Hết hạn</span><input type="text" placeholder="MM/YY" required /></div>
-             <div class="form-group"><span>CVV</span><input type="text" placeholder="CVV" required /></div>`
-    };
+  checkoutForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("✅ Cảm ơn bạn đã thanh toán!");
+    cart = [];
+    updateCartUI();
+    checkoutForm.reset();
+    if (paymentDetails) paymentDetails.innerHTML = "";
+    checkoutOverlay.style.display = "none";
+  });
 
-    checkoutForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      alert("✅ Cảm ơn bạn đã thanh toán!");
-      cart = [];
-      updateCartUI();
-      checkoutForm.reset();
-      if (paymentDetails) paymentDetails.innerHTML = "";
+  if (cancelCheckoutBtn) {
+    cancelCheckoutBtn.addEventListener("click", () => {
       checkoutOverlay.style.display = "none";
     });
+  }
 
-    if (cancelCheckoutBtn) {
-      cancelCheckoutBtn.addEventListener("click", () => {
-        checkoutOverlay.style.display = "none";
-      });
-    }
-
-    paymentInputs.forEach((input) => {
-      input.addEventListener("change", (e) => {
-        const method = e.target.value;
-        if (paymentDetails) paymentDetails.innerHTML = templates[method] || "";
-      });
+  if (paymentSelect) {
+    paymentSelect.addEventListener("change", (e) => {
+      const method = e.target.value;
+      paymentDetails.innerHTML = templates[method] || "";
     });
   }
+}
 
   // ==== MAIN PRODUCT CARDS ====
   document.querySelectorAll(".main__product-cards").forEach((card) => {
@@ -321,7 +318,7 @@ paginated.forEach((p, index) => {
   // Sự kiện click sang chi tiết sản phẩm
   div.querySelector(".bx-right-arrow-alt").addEventListener("click", () => {
     localStorage.setItem("selectedProduct", JSON.stringify(p));
-    window.location.href = "product-detail.html";
+    window.location.href = "/html/product-detail.html";
   });
 
   plGrid.appendChild(div);
