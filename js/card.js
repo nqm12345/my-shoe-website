@@ -154,108 +154,89 @@ if (checkoutForm && checkoutOverlay) {
   // ==== PL PRODUCTS FILTER + RENDER ====
 const products = [
   {
-    name: "Giày Thể Thao Nike Air Max",
-    image: "/images/pl-img1.jpg",
-    thumbs: ["/images/pl-img1.jpg", "/images/pl-img6.jpg", "/images/pl-img3.jpg"],
-    price: 189,
-    oldPrice: 199,
-    category: "men",
-    rating: 4,
-    sizes: [39, 40, 41, 42, 43]
-  },
-  {
-    name: "Giày Air Max Plus",
-    image: "/images/pl-img2.jpg",
-    thumbs: ["/images/pl-img2.jpg", "/images/pl-img2-thumb1.jpg", "/images/pl-img2-thumb2.jpg"],
-    price: 265,
-    category: "women",
-    rating: 5,
-    sizes: [36, 37, 38, 39, 40]
-  },
-  {
-    name: "Giày trẻ em vui nhộn",
-    image: "/images/pl-img3.jpg",
-    thumbs: ["/images/pl-img3.jpg", "/images/pl-img3-thumb1.jpg", "/images/pl-img3-thumb2.jpg"],
-    price: 129,
-    category: "kids",
-    rating: 3,
-    sizes: [30, 31, 32, 33, 34]
-  },
-  {
-    name: "Giày chạy địa hình",
-    image: "/images/pl-img4.jpg",
-    thumbs: ["/images/pl-img4.jpg", "/images/pl-img4-thumb1.jpg", "/images/pl-img4-thumb2.jpg"],
-    price: 189,
-    oldPrice: 199,
-    category: "men",
-    rating: 4,
-    sizes: [40, 41, 42, 43, 44]
-  },
-  {
-    name: "Giày Air Max Plus",
-    image: "/images/pl-img5.jpg",
-    thumbs: ["/images/pl-img5.jpg", "/images/pl-img5-thumb1.jpg", "/images/pl-img5-thumb2.jpg"],
-    price: 265,
-    category: "women",
-    rating: 5,
-    sizes: [37, 38, 39, 40, 41]
-  },
-  {
-    name: "Giày trẻ em vui nhộn",
-    image: "/images/pl-img6.jpg",
-    thumbs: ["/images/pl-img6.jpg", "/images/pl-img6-thumb1.jpg", "/images/pl-img6-thumb2.jpg"],
-    price: 129,
-    category: "kids",
-    rating: 3,
-    sizes: [30, 31, 32, 33, 34]
-  },
-  {
-    name: "Giày Thể Thao Nike Air Max",
+    name: "Giày adidas Campus 2 Nam - Xám",
     image: "/images/pl-img1.jpg",
     thumbs: ["/images/pl-img1.jpg", "/images/pl-img1-thumb1.jpg", "/images/pl-img1-thumb2.jpg"],
     price: 189,
     oldPrice: 199,
-    category: "men",
+    category: "Nam",
     rating: 4,
     sizes: [39, 40, 41, 42, 43]
   },
   {
-    name: "Giày Air Max Plus",
+    name: "Giày Puma Court Classic Nam - Trắng Đen",
     image: "/images/pl-img2.jpg",
     thumbs: ["/images/pl-img2.jpg", "/images/pl-img2-thumb1.jpg", "/images/pl-img2-thumb2.jpg"],
     price: 265,
-    category: "women",
+    category: "Nam",
     rating: 5,
     sizes: [36, 37, 38, 39, 40]
   },
   {
-    name: "Giày trẻ em vui nhộn",
+    name: "Giày Nike DownShifter 13 Nam - Trắng Xanh",
     image: "/images/pl-img3.jpg",
     thumbs: ["/images/pl-img3.jpg", "/images/pl-img3-thumb1.jpg", "/images/pl-img3-thumb2.jpg"],
     price: 129,
-    category: "kids",
+    category: "Nam",
     rating: 3,
     sizes: [30, 31, 32, 33, 34]
   },
   {
-    name: "Giày chạy địa hình",
+    name: "Giày Puma Tori Nữ - Trắng Xanh Ngọc",
     image: "/images/pl-img4.jpg",
     thumbs: ["/images/pl-img4.jpg", "/images/pl-img4-thumb1.jpg", "/images/pl-img4-thumb2.jpg"],
     price: 189,
     oldPrice: 199,
-    category: "men",
+    category: "Nữ",
     rating: 4,
     sizes: [40, 41, 42, 43, 44]
   },
   {
-    name: "Giày Air Max Plus",
+    name: "Giày Nike Run Defy Nữ - Trắng Tím",
     image: "/images/pl-img5.jpg",
     thumbs: ["/images/pl-img5.jpg", "/images/pl-img5-thumb1.jpg", "/images/pl-img5-thumb2.jpg"],
     price: 265,
-    category: "women",
+    category: "Nữ",
     rating: 5,
     sizes: [37, 38, 39, 40, 41]
-  }
+  },
+  {
+    name: "Giày Adidas Forum Low CL Nữ - Trắng Xanh Ngọc",
+    image: "/images/pl-img6.jpg",
+    thumbs: ["/images/pl-img6.jpg", "/images/pl-img6-thumb1.jpg", "/images/pl-img6-thumb2.jpg"],
+    price: 129,
+    category: "Nữ",
+    rating: 3,
+    sizes: [30, 31, 32, 33, 34]
+  },
+  {
+    name: "Giày Sneaker Bé Trai Nike Dynamo 2 Easyon",
+    image: "/images/pl-img7.webp",
+    thumbs: ["/images/pl-img7.webp", "/images/pl-img7-thumb1.webp", "/images/pl-img7-thumb2.webp"],
+    price: 189,
+    oldPrice: 199,
+    category: "Trẻ em",
+    rating: 4,
+    sizes: [26, 27, 28, 29, 30]
+  },
+  {
+    name: "Sandal trẻ em adidas Pixar Water Disney",
+    image: "/images/pl-img8.avif",
+    thumbs: ["/images/pl-img8.avif", "/images/pl-img8-thumb1.avif", "/images/pl-img8-thumb2.avif"],
+    price: 265,
+    category: "Trẻ em",
+    rating: 5,
+     sizes: [26, 27, 28, 29, 30]
+  },
+  {
+    name: "Giày thể thao PUMA x PLAYMOBIL® R78",
+    image: "/images/pl-img9.avif",
+    thumbs: ["/images/pl-img9.avif", "/images/pl-img9-thumb1.avif", "/images/pl-img9-thumb2.avif"],
+    price: 129,
+    category: "Trẻ em",
+    rating: 3,
+    sizes: [26, 27, 28, 29, 30]
+  },
 ];
 
 
