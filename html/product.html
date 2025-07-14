@@ -63,34 +63,44 @@
 
   <div class="pl-main-wrapper">
     <!-- Sidebar Filter -->
-    <aside class="pl-sidebar" data-aos="fade-right" data-aos-delay="200">
-      <p class="pl-sidebar-title">Tìm kiếm & Lọc</p>
+<aside class="pl-sidebar" data-aos="fade-right" data-aos-delay="200">
+  <p class="pl-sidebar-title">Tìm kiếm & Lọc</p>
 
-      <div class="pl-filter-group" data-aos="fade-right" data-aos-delay="300">
-        <label for="pl-search">Tìm theo tên:</label>
-        <input type="text" id="pl-search" placeholder="Nhập tên sản phẩm..." />
-      </div>
+  <div class="pl-filter-group" data-aos="fade-right" data-aos-delay="300">
+    <label for="pl-search">Tìm theo tên:</label>
+    <input type="text" id="pl-search" placeholder="Nhập tên sản phẩm..." />
+  </div>
 
-      <div class="pl-filter-group" data-aos="fade-right" data-aos-delay="400">
-        <label for="pl-category">Lọc theo loại:</label>
-        <select id="pl-category">
-          <option value="all">Tất cả</option>
-          <option value="Nam">Giày nam</option>
-          <option value="Nữ">Giày nữ</option>
-          <option value="Trẻ em">Giày trẻ em</option>
-        </select>
-      </div>
+  <div class="pl-filter-group" data-aos="fade-right" data-aos-delay="400">
+    <label for="pl-category">Lọc theo loại:</label>
+    <select id="pl-category">
+      <option value="all">Tất cả</option>
+      <option value="Nam">Giày nam</option>
+      <option value="Nữ">Giày nữ</option>
+      <option value="Trẻ em">Giày trẻ em</option>
+    </select>
+  </div>
 
-      <div class="pl-filter-group" data-aos="fade-right" data-aos-delay="500">
-        <label for="pl-price">Lọc theo giá:</label>
-        <select id="pl-price">
-          <option value="all">Tất cả</option>
-          <option value="low">Dưới $150</option>
-          <option value="mid">$150 - $200</option>
-          <option value="high">Trên $200</option>
-        </select>
-      </div>
-    </aside>
+  <div class="pl-filter-group" data-aos="fade-right" data-aos-delay="450">
+    <label for="pl-brand">Lọc theo hãng:</label>
+    <select id="pl-brand">
+      <option value="all">Tất cả</option>
+      <option value="Nike">Nike</option>
+      <option value="Puma">Puma</option>
+      <option value="Adidas">Adidas</option>
+    </select>
+  </div>
+
+  <div class="pl-filter-group" data-aos="fade-right" data-aos-delay="500">
+    <label>Lọc theo giá ($):</label>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <input type="number" id="price-min" placeholder="Từ" min="0" style="width: 70px;" />
+      <span>—</span>
+      <input type="number" id="price-max" placeholder="Đến" min="0" style="width: 70px;" />
+    </div>
+  </div>
+</aside>
+
 
     <!-- Product Area -->
     <section class="pl-product-area" data-aos="fade-left" data-aos-delay="300">

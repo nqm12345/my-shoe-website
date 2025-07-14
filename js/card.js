@@ -155,6 +155,7 @@ if (checkoutForm && checkoutOverlay) {
 const products = [
   {
     name: "Giày adidas Campus 2 Nam - Xám",
+    brand: "Adidas",
     image: "/images/pl-img1.jpg",
     thumbs: ["/images/pl-img1.jpg", "/images/pl-img1-thumb1.jpg", "/images/pl-img1-thumb2.jpg"],
     price: 189,
@@ -165,6 +166,7 @@ const products = [
   },
   {
     name: "Giày Puma Court Classic Nam - Trắng Đen",
+    brand: "Puma",
     image: "/images/pl-img2.jpg",
     thumbs: ["/images/pl-img2.jpg", "/images/pl-img2-thumb1.jpg", "/images/pl-img2-thumb2.jpg"],
     price: 265,
@@ -174,6 +176,7 @@ const products = [
   },
   {
     name: "Giày Nike DownShifter 13 Nam - Trắng Xanh",
+    brand: "Nike",
     image: "/images/pl-img3.jpg",
     thumbs: ["/images/pl-img3.jpg", "/images/pl-img3-thumb1.jpg", "/images/pl-img3-thumb2.jpg"],
     price: 129,
@@ -183,6 +186,7 @@ const products = [
   },
   {
     name: "Giày Puma Tori Nữ - Trắng Xanh Ngọc",
+    brand: "Puma",
     image: "/images/pl-img4.jpg",
     thumbs: ["/images/pl-img4.jpg", "/images/pl-img4-thumb1.jpg", "/images/pl-img4-thumb2.jpg"],
     price: 189,
@@ -193,6 +197,7 @@ const products = [
   },
   {
     name: "Giày Nike Run Defy Nữ - Trắng Tím",
+    brand: "Nike",
     image: "/images/pl-img5.jpg",
     thumbs: ["/images/pl-img5.jpg", "/images/pl-img5-thumb1.jpg", "/images/pl-img5-thumb2.jpg"],
     price: 265,
@@ -202,6 +207,7 @@ const products = [
   },
   {
     name: "Giày Adidas Forum Low CL Nữ - Trắng Xanh Ngọc",
+    brand: "Adidas",
     image: "/images/pl-img6.jpg",
     thumbs: ["/images/pl-img6.jpg", "/images/pl-img6-thumb1.jpg", "/images/pl-img6-thumb2.jpg"],
     price: 129,
@@ -211,6 +217,7 @@ const products = [
   },
   {
     name: "Giày Sneaker Bé Trai Nike Dynamo 2 Easyon",
+    brand: "Nike",
     image: "/images/pl-img7.webp",
     thumbs: ["/images/pl-img7.webp", "/images/pl-img7-thumb1.webp", "/images/pl-img7-thumb2.webp"],
     price: 189,
@@ -221,29 +228,33 @@ const products = [
   },
   {
     name: "Sandal trẻ em adidas Pixar Water Disney",
+    brand: "Adidas",
     image: "/images/pl-img8.avif",
     thumbs: ["/images/pl-img8.avif", "/images/pl-img8-thumb1.avif", "/images/pl-img8-thumb2.avif"],
     price: 265,
     category: "Trẻ em",
     rating: 5,
-     sizes: [26, 27, 28, 29, 30]
+    sizes: [26, 27, 28, 29, 30]
   },
   {
     name: "Giày thể thao PUMA x PLAYMOBIL® R78",
+    brand: "Puma",
     image: "/images/pl-img9.avif",
     thumbs: ["/images/pl-img9.avif", "/images/pl-img9-thumb1.avif", "/images/pl-img9-thumb2.avif"],
     price: 129,
     category: "Trẻ em",
     rating: 3,
     sizes: [26, 27, 28, 29, 30]
-  },
+  }
 ];
 
 
 
-  const searchInput = document.getElementById("pl-search");
-  const categorySelect = document.getElementById("pl-category");
-  const priceSelect = document.getElementById("pl-price");
+const searchInput     = document.getElementById("pl-search");
+const categorySelect  = document.getElementById("pl-category");
+const brandSelect     = document.getElementById("pl-brand");
+const priceMinInput   = document.getElementById("price-min");
+const priceMaxInput   = document.getElementById("price-max");
   const plGrid = document.getElementById("pl-grid");
   const paginationContainer = document.getElementById("pl-pagination");
   let currentPage = 1, itemsPerPage = 6;
@@ -326,28 +337,32 @@ AOS.refresh();
     }
   }
 
-  function filterProducts() {
-    const search = searchInput?.value.toLowerCase() || "";
-    const category = categorySelect?.value || "all";
-    const price = priceSelect?.value || "all";
+ function filterProducts() {
+  const search    = searchInput?.value.toLowerCase() || "";
+  const category  = categorySelect?.value || "all";
+  const brand     = brandSelect?.value || "all";
+  const minPrice  = parseFloat(priceMinInput?.value) || 0;
+  const maxPrice  = parseFloat(priceMaxInput?.value) || Infinity;
 
-    const filtered = products.filter(p => {
-      const matchName = p.name.toLowerCase().includes(search);
-      const matchCategory = category === "all" || p.category === category;
-      const matchPrice = price === "all" ||
-        (price === "low" && p.price < 150) ||
-        (price === "mid" && p.price >= 150 && p.price <= 200) ||
-        (price === "high" && p.price > 200);
-      return matchName && matchCategory && matchPrice;
-    });
+  const filtered = products.filter(p => {
+    const matchName     = p.name.toLowerCase().includes(search);
+    const matchCategory = category === "all" || p.category === category;
+    const matchBrand    = brand === "all" || p.name.toLowerCase().includes(brand.toLowerCase());
+    const matchPrice    = p.price >= minPrice && p.price <= maxPrice;
+    return matchName && matchCategory && matchBrand && matchPrice;
+  });
 
-    renderProducts(filtered);
-    renderPagination(filtered.length);
-  }
+  renderProducts(filtered);
+  renderPagination(filtered.length);
+}
 
-  if (searchInput) searchInput.addEventListener("input", () => { currentPage = 1; filterProducts(); });
-  if (categorySelect) categorySelect.addEventListener("change", () => { currentPage = 1; filterProducts(); });
-  if (priceSelect) priceSelect.addEventListener("change", () => { currentPage = 1; filterProducts(); });
+/* ========= GẮN SỰ KIỆN ========= */
+if (searchInput)     searchInput.addEventListener("input",  () => { currentPage = 1; filterProducts(); });
+if (categorySelect)  categorySelect.addEventListener("change", () => { currentPage = 1; filterProducts(); });
+if (brandSelect)     brandSelect.addEventListener("change", () => { currentPage = 1; filterProducts(); });
+if (priceMinInput)   priceMinInput.addEventListener("input",  () => { currentPage = 1; filterProducts(); });
+if (priceMaxInput)   priceMaxInput.addEventListener("input",  () => { currentPage = 1; filterProducts(); });
 
-  filterProducts();
+/* ========= KHỞI TẠO LẦN ĐẦU ========= */
+filterProducts();
 });
